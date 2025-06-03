@@ -6,14 +6,36 @@ body {
     padding: 0;
 }
 
-.lottery-container {
-    max-width: 480px;
-    margin: 40px auto;
+/* Layout container */
+.main-flex-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+    max-width: 1000px;
+    margin: 48px auto;
+}
+
+.left-panel {
+    flex: 1 1 340px;
     background: #fff;
     border-radius: 18px;
     box-shadow: 0 4px 24px rgba(98,126,234,0.10);
     padding: 32px 24px 24px 24px;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    min-width: 320px;
+}
+
+.right-panel {
+    flex: 1 1 340px;
+    background: #f5f6fa;
+    border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(98,126,234,0.08);
+    padding: 32px 24px 24px 24px;
+    min-width: 320px;
 }
 
 header h1 {
@@ -22,10 +44,12 @@ header h1 {
     margin-bottom: 18px;
     letter-spacing: 2px;
     font-weight: 700;
+    text-align: left;
 }
 
 .jackpot-section {
-    margin: 24px 0 32px 0;
+    margin: 0 0 32px 0;
+    text-align: left;
 }
 
 .jackpot-label {
@@ -35,47 +59,76 @@ header h1 {
 }
 
 .jackpot-amount {
-    font-size: 3.6rem;
+    font-size: 2.8rem;
     color: #fff;
     font-weight: bold;
     background: linear-gradient(90deg, #627eea 0%, #8f94fb 100%);
     border-radius: 16px;
-    padding: 28px 0;
-    margin: 0 auto 10px auto;
-    width: 90%;
+    padding: 18px 0;
+    margin: 0 0 10px 0;
+    width: 100%;
     box-shadow: 0 4px 24px rgba(98,126,234,0.18);
-    letter-spacing: 3px;
+    letter-spacing: 2px;
     text-shadow: 0 2px 8px #627eea, 0 0 2px #fff;
     animation: jackpot-fomo 1.2s infinite alternate;
+    text-align: center;
 }
 @keyframes jackpot-fomo {
     0% { box-shadow: 0 0 24px #627eea, 0 0 0 #fff; }
     100% { box-shadow: 0 0 48px #8f94fb, 0 0 8px #fff; }
 }
 
-.winners-section {
-    margin-top: 32px;
+.info-section {
+    background: #f5f6fa;
+    border-radius: 10px;
+    padding: 18px 10px 10px 10px;
+    box-shadow: 0 1px 8px #627eeacc;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+}
+.info-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.08rem;
+    margin-bottom: 2px;
+}
+.info-label {
+    color: #7b7b7b;
+    font-weight: 500;
+    min-width: 120px;
+}
+.info-value {
+    color: #627eea;
+    font-weight: bold;
+    font-family: 'Fira Mono', 'Consolas', monospace;
+    font-size: 1.08rem;
+    letter-spacing: 1px;
 }
 
-.winners-section h2 {
+.right-panel h2 {
     color: #627eea;
     font-size: 1.5rem;
     margin-bottom: 18px;
     letter-spacing: 2px;
     text-shadow: 0 1px 4px #fff;
+    text-align: left;
 }
 
 .winners-list {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    align-items: center;
+    align-items: stretch;
 }
 
 .winner-placeholder {
     color: #aaa;
     font-size: 1rem;
     margin-top: 12px;
+    text-align: center;
 }
 
 .winner-address {
@@ -99,25 +152,32 @@ header h1 {
     font-family: 'Fira Mono', 'Consolas', monospace;
     letter-spacing: 1px;
     box-shadow: 0 2px 12px rgba(98,126,234,0.10);
-    margin-bottom: 4px;
+    margin-bottom: 8px;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 4px;
     transition: transform 0.2s;
+    word-break: break-all;
+    width: 100%;
+    min-width: 0;
 }
-.winner-address.fomo:hover {
-    transform: scale(1.04) rotate(-1deg);
-    box-shadow: 0 4px 24px #627eea44;
+.winner-address.fomo > div, .winner-address.fomo > a {
+    width: 100%;
+    display: block;
+    text-align: left;
 }
 .winner-address.fomo a {
     color: #fff;
     text-decoration: underline;
     font-weight: bold;
     transition: color 0.2s;
-}
-.winner-address.fomo a:hover {
-    color: #ffe082;
+    font-size: 1rem;
+    word-break: break-all;
+    width: 100%;
+    display: block;
+    text-align: left;
 }
 .win-amount {
     background: #f3f4fa;
@@ -126,39 +186,78 @@ header h1 {
     padding: 2px 10px;
     font-size: 1.05rem;
     font-weight: bold;
-    margin-left: 8px;
+    margin-left: 0;
+    margin-top: 2px;
     box-shadow: 0 1px 4px #627eea33;
     letter-spacing: 1px;
     text-shadow: 0 1px 2px #fff;
+    display: block;
+    width: 100%;
+    text-align: left;
+    box-sizing: border-box;
 }
 
-.info-section {
-    margin: 28px 0 0 0;
-    background: #f5f6fa;
-    border-radius: 10px;
-    padding: 18px 10px 10px 10px;
-    box-shadow: 0 1px 8px #627eeacc;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    align-items: flex-start;
-}
-.info-row {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 1.08rem;
-    margin-bottom: 2px;
-}
-.info-label {
-    color: #7b7b7b;
-    font-weight: 500;
-    min-width: 100px;
-}
-.info-value {
-    color: #627eea;
-    font-weight: bold;
-    font-family: 'Fira Mono', 'Consolas', monospace;
-    font-size: 1.08rem;
-    letter-spacing: 1px;
+@media (max-width: 900px) {
+    html, body {
+        max-width: 100vw;
+        overflow-x: hidden;
+    }
+    .main-flex-container {
+        flex-direction: column;
+        gap: 16px;
+        max-width: 100vw;
+        width: 100vw;
+        padding: 0 0;
+        box-sizing: border-box;
+    }
+    .left-panel, .right-panel {
+        min-width: 0;
+        width: 100vw;
+        max-width: 100vw;
+        padding: 16px 4vw 12px 4vw;
+        box-sizing: border-box;
+    }
+    header h1 {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+        word-break: break-all;
+    }
+    .jackpot-amount {
+        font-size: 1.1rem;
+        padding: 8px 0;
+        word-break: break-all;
+    }
+    .info-label, .info-value {
+        font-size: 0.92rem;
+    }
+    .right-panel h2 {
+        font-size: 1rem;
+        margin-bottom: 8px;
+    }
+    .winners-list {
+        width: 100% !important;
+        max-width: 100vw !important;
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+    }
+    .winner-address.fomo {
+        width: 100% !important;
+        max-width: 100vw !important;
+        box-sizing: border-box;
+        padding: 6px 0 !important;
+        gap: 2px !important;
+        margin: 0 0 8px 0 !important;
+        border-radius: 10px;
+    }
+    .win-amount {
+        width: 100% !important;
+        box-sizing: border-box;
+        padding: 2px 0 2px 0 !important;
+        margin: 0 !important;
+        border-radius: 6px;
+    }
+    .info-section {
+        padding: 12px 4px 6px 4px;
+    }
 } 
