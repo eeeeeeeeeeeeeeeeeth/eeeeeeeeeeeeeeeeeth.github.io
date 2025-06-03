@@ -1,0 +1,164 @@
+body {
+    background: linear-gradient(135deg, #f5f6fa 0%, #e8eaf6 100%);
+    font-family: 'Inter', 'Roboto', Arial, sans-serif;
+    color: #222;
+    margin: 0;
+    padding: 0;
+}
+
+.lottery-container {
+    max-width: 480px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(98,126,234,0.10);
+    padding: 32px 24px 24px 24px;
+    text-align: center;
+}
+
+header h1 {
+    color: #627eea;
+    font-size: 2.2rem;
+    margin-bottom: 18px;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+.jackpot-section {
+    margin: 24px 0 32px 0;
+}
+
+.jackpot-label {
+    font-size: 1.1rem;
+    color: #627eea;
+    margin-bottom: 10px;
+}
+
+.jackpot-amount {
+    font-size: 3.6rem;
+    color: #fff;
+    font-weight: bold;
+    background: linear-gradient(90deg, #627eea 0%, #8f94fb 100%);
+    border-radius: 16px;
+    padding: 28px 0;
+    margin: 0 auto 10px auto;
+    width: 90%;
+    box-shadow: 0 4px 24px rgba(98,126,234,0.18);
+    letter-spacing: 3px;
+    text-shadow: 0 2px 8px #627eea, 0 0 2px #fff;
+    animation: jackpot-fomo 1.2s infinite alternate;
+}
+@keyframes jackpot-fomo {
+    0% { box-shadow: 0 0 24px #627eea, 0 0 0 #fff; }
+    100% { box-shadow: 0 0 48px #8f94fb, 0 0 8px #fff; }
+}
+
+.winners-section {
+    margin-top: 32px;
+}
+
+.winners-section h2 {
+    color: #627eea;
+    font-size: 1.5rem;
+    margin-bottom: 18px;
+    letter-spacing: 2px;
+    text-shadow: 0 1px 4px #fff;
+}
+
+.winners-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+.winner-placeholder {
+    color: #aaa;
+    font-size: 1rem;
+    margin-top: 12px;
+}
+
+.winner-address {
+    background: #e3f2fd;
+    color: #627eea;
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-size: 1.05rem;
+    font-family: 'Fira Mono', 'Consolas', monospace;
+    letter-spacing: 1px;
+    box-shadow: 0 1px 4px rgba(98,126,234,0.08);
+    margin-bottom: 2px;
+}
+
+.winner-address.fomo {
+    background: linear-gradient(90deg, #8f94fb 0%, #627eea 100%);
+    color: #fff;
+    border-radius: 10px;
+    padding: 10px 18px;
+    font-size: 1.1rem;
+    font-family: 'Fira Mono', 'Consolas', monospace;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 12px rgba(98,126,234,0.10);
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    transition: transform 0.2s;
+}
+.winner-address.fomo:hover {
+    transform: scale(1.04) rotate(-1deg);
+    box-shadow: 0 4px 24px #627eea44;
+}
+.winner-address.fomo a {
+    color: #fff;
+    text-decoration: underline;
+    font-weight: bold;
+    transition: color 0.2s;
+}
+.winner-address.fomo a:hover {
+    color: #ffe082;
+}
+.win-amount {
+    background: #f3f4fa;
+    color: #627eea;
+    border-radius: 6px;
+    padding: 2px 10px;
+    font-size: 1.05rem;
+    font-weight: bold;
+    margin-left: 8px;
+    box-shadow: 0 1px 4px #627eea33;
+    letter-spacing: 1px;
+    text-shadow: 0 1px 2px #fff;
+}
+
+.info-section {
+    margin: 28px 0 0 0;
+    background: #f5f6fa;
+    border-radius: 10px;
+    padding: 18px 10px 10px 10px;
+    box-shadow: 0 1px 8px #627eeacc;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+}
+.info-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.08rem;
+    margin-bottom: 2px;
+}
+.info-label {
+    color: #7b7b7b;
+    font-weight: 500;
+    min-width: 100px;
+}
+.info-value {
+    color: #627eea;
+    font-weight: bold;
+    font-family: 'Fira Mono', 'Consolas', monospace;
+    font-size: 1.08rem;
+    letter-spacing: 1px;
+} 
