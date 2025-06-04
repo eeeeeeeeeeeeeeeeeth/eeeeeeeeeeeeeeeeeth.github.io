@@ -1,4 +1,5 @@
 const LOTTERY_CONTRACT_ADDRESS = '0x28F277ca151E487A23509529Ced8A5112d6fd37b';
+
 const CHAIN_EXPLORER = 'https://bscscan.com/address/'; 
 const LOTTERY_ABI = [
     {
