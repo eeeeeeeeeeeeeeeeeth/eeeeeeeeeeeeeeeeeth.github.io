@@ -1,9 +1,6 @@
-// 需要用户安装MetaMask等以太坊钱包
-// 请将下方合约地址替换为你的LotteryPool合约地址
-const LOTTERY_CONTRACT_ADDRESS = '0x4dA4A1058B3Ea184733ae8FfE76C1D66f3f9049c';
-const CHAIN_EXPLORER = 'https://bscscan.com/address/'; // 可根据实际链更换
+const LOTTERY_CONTRACT_ADDRESS = '0x28F277ca151E487A23509529Ced8A5112d6fd37b';
+const CHAIN_EXPLORER = 'https://bscscan.com/address/'; 
 const LOTTERY_ABI = [
-    // 只包含getAllInfo方法的ABI片段
     {
         "inputs": [
             { "internalType": "address", "name": "user", "type": "address" }
