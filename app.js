@@ -17,7 +17,6 @@ const LOTTERY_ABI = [
     }
 ];
 
-// 更新状态指示器
 function updateStatusIndicator(status, message) {
     const indicator = document.getElementById('status-indicator');
     if (!indicator) return;
@@ -56,7 +55,6 @@ function updateStatusIndicator(status, message) {
     }
 }
 
-// 添加动画效果到奖池金额
 function animateJackpot(amount) {
     const jackpotElement = document.getElementById('jackpot-amount');
     const currentAmount = parseFloat(jackpotElement.textContent.replace(/[,，]/g, '')) || 0;
@@ -112,16 +110,13 @@ async function loadLotteryInfo() {
         
         if (!window.ethereum) {
             updateStatusIndicator('wallet', '未安装钱包');
-            // 仍然可以显示部分信息，但不显示用户特定数据
             document.getElementById('user-weight').innerText = '请安装钱包';
             return;
         }
 
-        // 连接钱包
         const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
         const userAddress = accounts[0];
 
-        // 用 window.ethereum 初始化 Web3
         const web3 = new Web3(window.ethereum);
         const contract = new web3.eth.Contract(LOTTERY_ABI, LOTTERY_CONTRACT_ADDRESS);
 
@@ -133,11 +128,9 @@ async function loadLotteryInfo() {
         const winners = result[1];
         const winnersWinning = result[2];
 
-        // 动画更新奖池金额
         const jackpotAmount = Number(web3.utils.fromWei(info[6], 'ether'));
         animateJackpot(jackpotAmount);
 
-        // 更新信息区块
         const lastDraw = new Date(Number(info[4]) * 1000);
         const now = new Date();
         const isRecent = (now - lastDraw) < 3600000; // 1小时内
@@ -146,7 +139,6 @@ async function loadLotteryInfo() {
         document.getElementById('total-weight').innerText = Number(info[1]).toLocaleString('zh-CN');
         document.getElementById('user-weight').innerText = Number(info[0]).toLocaleString('zh-CN');
 
-        // 更新中奖者列表
         const winnersList = document.getElementById('winners-list');
         winnersList.innerHTML = '';
         
@@ -165,7 +157,6 @@ async function loadLotteryInfo() {
                     <span class="win-amount">+${Number(winAmount).toLocaleString('zh-CN', {maximumFractionDigits:2})} USDT</span>
                 `;
                 
-                // 添加进入动画
                 div.style.opacity = '0';
                 div.style.transform = 'translateY(20px)';
                 winnersList.appendChild(div);
@@ -178,7 +169,6 @@ async function loadLotteryInfo() {
             }
         }
 
-        // 显示连接的钱包地址
         const shortAddress = `${userAddress.slice(0,6)}...${userAddress.slice(-4)}`;
         updateStatusIndicator('wallet-connected', shortAddress);
         
@@ -186,7 +176,6 @@ async function loadLotteryInfo() {
         console.error('获取合约信息失败:', e);
         updateStatusIndicator('error', '获取数据失败');
         
-        // 显示友好的错误信息
         if (e.message.includes('network')) {
             alert('网络连接错误，请检查网络设置');
         } else if (e.message.includes('contract')) {
@@ -197,9 +186,7 @@ async function loadLotteryInfo() {
     }
 }
 
-// 自动刷新数据
 function startAutoRefresh() {
-    // 每30秒刷新一次数据
     setInterval(async () => {
         try {
             await loadLotteryInfo();
@@ -210,7 +197,6 @@ function startAutoRefresh() {
 }
 
 window.addEventListener('DOMContentLoaded', () => {
-    // 检查web3.js
     if (typeof window.Web3 === 'undefined') {
         const script = document.createElement('script');
         script.src = './web3.min.js';
