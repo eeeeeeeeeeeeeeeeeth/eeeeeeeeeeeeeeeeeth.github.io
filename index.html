@@ -3,43 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LUCKYE</title>
+    <title>PINO 奖池</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
 <body>
-    <div class="main-flex-container">
-        <div class="left-panel">
-            <header>
-                <h1>ETH Lucky Pool</h1>
-            </header>
-            <section class="jackpot-section">
-                <div class="jackpot-label">Current Jackpot (ETH)</div>
-                <div id="jackpot-amount" class="jackpot-amount">0</div>
-            </section>
-            <section class="info-section">
-                <div class="info-row">
-                    <span class="info-label">Last Draw Time:</span>
-                    <span id="last-draw-time" class="info-value">-</span>
-                </div>
-                <div class="info-row">
-                    <span class="info-label">Total Weight:</span>
-                    <span id="total-weight" class="info-value">-</span>
-                </div>
-                <div class="info-row">
-                    <span class="info-label">My Weight:</span>
-                    <span id="user-weight" class="info-value">-</span>
-                </div>
-            </section>
-        </div>
-        <div class="right-panel">
-            <section class="winners-section">
-                <h2>Recent Winners</h2>
-                <div id="winners-list" class="winners-list">
-                    <div class="winner-placeholder">No Data</div>
-                </div>
-            </section>
-        </div>
+    <div class="lottery-container">
+        <header>
+            <h1>PINO 奖池</h1>
+            <!-- <div class="subtitle">🎲 智能抽奖系统 🎲</div> -->
+        </header>
+        
+        <section class="jackpot-section">
+            <div class="jackpot-label">🏆 当前奖池金额（USDT）</div>
+            <div id="jackpot-amount" class="jackpot-amount">0</div>
+            <div class="jackpot-description">实时更新・透明公正・即时到账</div>
+        </section>
+        
+        <section class="winners-section">
+            <h2>💰 近期幸运儿</h2>
+            <div id="winners-list" class="winners-list">
+                <div class="winner-placeholder">🔍 暂无中奖记录</div>
+            </div>
+        </section>
+        
+        <section class="info-section">
+            <div class="info-row">
+                <span class="info-label">🕐 上次开奖时间：</span>
+                <span id="last-draw-time" class="info-value">-</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">⚖️ 当前总权重：</span>
+                <span id="total-weight" class="info-value">-</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">👤 我的权重：</span>
+                <span id="user-weight" class="info-value">-</span>
+            </div>
+            <div class="info-footer">
+                <span class="status-indicator" id="status-indicator">🔄 正在连接...</span>
+            </div>
+        </section>
     </div>
+    
     <script src="app.js"></script>
 </body>
 </html> 
